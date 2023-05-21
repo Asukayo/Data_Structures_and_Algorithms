@@ -1,3 +1,4 @@
+/cmake-build-debug/*
 /.idea/.gitignore
 /.idea/.name
 /cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/a.exe
