@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 //队列的链式存储结构
@@ -9,7 +10,7 @@
 typedef struct
 {
     int data;   //数据域
-    LinkNode * next;    //后驱元素指针
+    struct LinkNode * next;    //后驱元素指针
 }LinkNode;
 
 //真正的链式队列只包含一个头指针与一个尾指针
