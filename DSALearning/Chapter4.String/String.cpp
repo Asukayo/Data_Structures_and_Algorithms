@@ -26,6 +26,18 @@ int StrCompare(SString S,SString T){
     return S.length-T.length;
 }
 
+bool subString(SString *sub,SString S ,int pos,int len ){
+    //求子串，用Sub返回串S的第pos个字符起长度为len的子串
+    if (pos+len-1>S.length){
+        return false;   //子串范围越界
+    }
+    for(int i = pos;i<pos+len;i++){
+        sub->ch[i-pos+1] = S.ch[i];
+    }
+    sub->length = len;
+    return true;
+}
+
 
 
 
