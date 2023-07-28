@@ -27,3 +27,23 @@ int Index(SString S,SString B){
         return 0;
     }
 }
+
+//KMP Matching
+int KMPIndex(SString S,SString T,int next[]){
+    int i = 1;
+    int j = 1;
+    while(i<=S.length&&j<=T.length){
+        if(S.ch[i] == T.ch[j] || j==0){
+            i++;
+            j++;
+        }
+        else{
+            j = next[j];
+        }
+    }
+    if(j >T.length){
+        return i - j + 1;
+    }else{
+        return 0;
+    }
+}
