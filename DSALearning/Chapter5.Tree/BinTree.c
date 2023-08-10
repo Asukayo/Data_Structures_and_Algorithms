@@ -33,3 +33,17 @@ int main(){
     return 0;
 }
 
+//对于顺序存储的二叉树，查找i和j两个结点的最近的公共祖先的值
+int IndexSameAncestor(int i ,int j){
+    if(i>MAXSIZE||j>MAXSIZE){
+        return 0;
+    }
+    while(i !=j){
+        if(i>j){
+            i = i/2;
+        } else{
+            j = j/2;
+        }
+    }
+    return i;
+}
