@@ -51,6 +51,8 @@
     //可以给复杂的数据类型起一个别名，这样就可以在使用中用别名来替代原来的写法
     typedef long long LL;   //给longlong起个别名 LL
     LL var2  = 1212128896868768;
+    typedef int A[100];
+    A list;
 
 //2.2.6常用Math函数
     //fabs(double x)用于对double变量取绝对值
