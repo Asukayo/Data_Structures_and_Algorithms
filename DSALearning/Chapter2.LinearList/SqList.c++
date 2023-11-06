@@ -29,20 +29,20 @@ void InitList(SeqList *L){
     L->MaxSize = InitSize;
 }//创建动态分配的顺序表
 
-int  ListInsert(SqList *L,int i ,int e){
+int  ListInsert(SqList &L,int i ,int e){
     //判断输入的数据是否合法
-    if(i<1 || i>L->length+1){
+    if(i<1 || i>L.length+1){
         return 0;
     }
-    if(L->length>=InitList){
+    if(L.length >= InitSize){
         return 0;
     }
-    int j = L->length;
+    int j = L.length;
 
     for(j;j>=i;j--){
-        L->datas[i] = L->datas[i-1];//将datas数组里的每个数后移一位
+        L.datas[i] = L.datas[i-1];//将datas数组里的每个数后移一位
     }
-    L->datas[i-1] = e;
+    L.datas[i-1] = e;
     return 1;
 }//插入操作
 
