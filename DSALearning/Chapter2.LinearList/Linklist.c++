@@ -18,7 +18,7 @@ typedef struct  LNode{
 }LNode,*LinkList;
 
 
-int InitList(LinkList L){
+int InitList(LinkList &L){
     L = (LNode*)malloc(sizeof(LNode));
     if(L==NULL){//内存空间不足,分配失败
         return 0;
@@ -85,13 +85,13 @@ LNode * GetLinkListNode(LinkList L,int i){
 int ListInsert(LinkList L,int i, int e){
     LNode *p = GetLinkListNode(L,i-1);      //查找第i个节点的前驱元素
     if(p != NULL){      //查找成功
-        LNode* new = (LNode *)malloc(sizeof(LNode));//创建的是结点,返回的是指向这个节点的指针
-        if(!new){
+        LNode* newNode = (LNode *)malloc(sizeof(LNode));//创建的是结点,返回的是指向这个节点的指针
+        if(!newNode){
             return 0;
         }  //内存空间分配失败
-        new->data = e;  
-        new->next = p->next;
-        p->next = new;
+        newNode->data = e;
+        newNode->next = p->next;
+        p->next = newNode;
         return 1;       //创建成功
     }
     
@@ -99,7 +99,7 @@ int ListInsert(LinkList L,int i, int e){
 
 int DeleteLinkListNode(LinkList L,int i,int e){
     if(i<1){
-        return NULL;
+        return 0;
     }
     LNode * p = GetLinkListNode(L,i-1); //找到第i-1个节点，即被删除节点的前驱节点
     e = p->next->data;    //将被删除元素返还出去

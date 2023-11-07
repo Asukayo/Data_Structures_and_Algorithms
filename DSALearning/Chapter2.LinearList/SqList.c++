@@ -46,16 +46,16 @@ int  ListInsert(SqList &L,int i ,int e){
     return 1;
 }//插入操作
 
-int ListDelete(SqList *L,int i,int *e){
+int ListDelete(SqList &L,int i,int *e){
     //判断输入的数据是否合法
-    if(i<1 || i>L->length){
+    if(i<1 || i>L.length){
         return 0;
     }
     //将被删除的数字赋给e
-    *e = L->datas[i-1];
+    *e = L.datas[i-1];
     //将被删除后的数字每个依次前移
-    for(int j = i;j<L->length;j++){
-        L->datas[j-1] = L->datas[j];
+    for(int j = i;j<L.length;j++){
+        L.datas[j-1] = L.datas[j];
     }
     return 1;
 }//删除操作

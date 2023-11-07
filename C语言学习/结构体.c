@@ -20,5 +20,10 @@ int main(){
     //字符数组仅可以在初始化时对整个字符数组操作
     Alice.major[1] = 'C';
     //访问结构体指针变量内的元素使用"->"操作更方便
+
+
+    struct Student* JKL;
+
+    JKL->id = 10;
     return 0;
 }
