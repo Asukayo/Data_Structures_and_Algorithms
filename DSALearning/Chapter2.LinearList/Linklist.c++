@@ -27,7 +27,7 @@ int InitList(LinkList &L){
     return 1;
 }//初始化一个带头结点的单链表
 
-LinkList Head_Insert(LinkList L){
+LinkList Head_Insert(LinkList &L){
     LNode *s ;
     int x;      //插入的数字
     L = (LinkList)malloc(sizeof(LNode));
@@ -44,7 +44,7 @@ LinkList Head_Insert(LinkList L){
     return L;   
 }//利用头插法创建链表（带头结点）
 
-LinkList Head_InsertWithNoHeadNode(LinkList L){
+LinkList Head_InsertWithNoHeadNode(LinkList &L){
     int x = 0;      //待插入数据
     LNode* s;       //存储新创的节点
     scanf("%d",&x);
@@ -63,7 +63,7 @@ LinkList Head_InsertWithNoHeadNode(LinkList L){
     
 }//不待头结点
 
-LNode * GetLinkListNode(LinkList L,int i){
+LNode * GetLinkListNode(LinkList &L,int i){
     //i是要插入的元素的位序,从一开始
     //首先判断插入的位置是否合法
     if(i<1){
@@ -76,13 +76,10 @@ LNode * GetLinkListNode(LinkList L,int i){
         p = p->next;
         j++;
     }
-    if(p == NULL){  //以防p因为空节点而跳出上述循环，保证上述循环可以找到真正的i的前驱节点
-        return NULL;
-    }
     return p;       //查找成功，返回指针p
 }//按位序查找结点元素
 
-int ListInsert(LinkList L,int i, int e){
+int ListInsert(LinkList &L,int i, int e){
     LNode *p = GetLinkListNode(L,i-1);      //查找第i个节点的前驱元素
     if(p != NULL){      //查找成功
         LNode* newNode = (LNode *)malloc(sizeof(LNode));//创建的是结点,返回的是指向这个节点的指针
@@ -97,7 +94,7 @@ int ListInsert(LinkList L,int i, int e){
     
 }//后插法插入节点，//前插法的插入操作和后插法一致，只需要将两者元素交换一下顺序即可
 
-int DeleteLinkListNode(LinkList L,int i,int e){
+int DeleteLinkListNode(LinkList &L,int i,int &e){
     if(i<1){
         return 0;
     }
