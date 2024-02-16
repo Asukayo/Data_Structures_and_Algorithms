@@ -13,13 +13,13 @@ typedef struct
 }SqStack;
 
 //初始化操作
-void InitStack(SqStack *S){
-    S->top = -1;       //初始化栈顶指针
+void InitStack(SqStack &S){
+    S.top = -1;       //初始化栈顶指针
 }
 
 //判断栈空的操作
-bool StackEmpty(SqStack *S){
-    if(S->top == -1){
+bool StackEmpty(SqStack &S){
+    if(S.top == -1){
         return true;
 
     }else
@@ -28,26 +28,26 @@ bool StackEmpty(SqStack *S){
     }
 }
 //进栈操作
-bool Push(SqStack *S,int x){
-    if(S->top == MAXSIZE -1){
+bool Push(SqStack &S,int x){
+    if(S.top == MAXSIZE -1){
         return false;           //栈已满
     }
-    //S->data[++S->top] = x     先令top++，再使用top
-    S->top = S->top-1;
-    S->data[S->top] = x;
+    //S.data[++S.top] = x     先令top++，再使用top
+    S.top = S.top-1;
+    S.data[S.top] = x;
     return true;              
 }
 
 // 出栈操作
-bool Pop(SqStack *S,int *x){
-    if(S->top ==-1) return false;   //栈为空
-    *x = S->data[S->top];       
-    S->top--;
+bool Pop(SqStack &S,int *x){
+    if(S.top ==-1) return false;   //栈为空
+    *x = S.data[S.top];       
+    S.top--;
     return true;
 }
 //读栈顶元素
-bool GetTop(SqStack *S,int *x){
-    if(S->top ==-1) return false;    //栈为空
-    (*x) = S->data[S->top];         //x记录栈顶元素
+bool GetTop(SqStack &S,int *x){
+    if(S.top ==-1) return false;    //栈为空
+    (*x) = S.data[S.top];         //x记录栈顶元素
     return true;
 }
