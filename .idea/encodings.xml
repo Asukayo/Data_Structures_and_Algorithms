@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/C语言学习/LuBeiTest/第4章-流程控制语句/SwitchWithBreak.c" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/C语言学习/Test.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/CLearning/LuBeiTest/Chapter11-Files/FileTest.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/CLearning/LuBeiTest/第4章-流程控制语句/SwitchWithBreak.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/CLearning/Test.cpp" charset="GBK" />
   </component>
 </project>

@@ -5,6 +5,7 @@
 #include "stdlib.h"
 #include "string.h"
 #include "math.h"
+#include "stdbool.h"
 #define CR printf("\n")
 
 int main(){
@@ -113,4 +114,42 @@ int* plusOne(int* digits, int digitsSize, int* returnSize) {
         return returnNum;
     }
 
+}
+
+bool isRobotBounded(char* instructions) {
+    enum orientations {
+        north = 0, east, south, west
+    } orient;
+    int i, j, pivot[2] = {0};
+    orient = north;
+    for (j = 0; j < 4; j++) {
+        for (i = 0; instructions[i] != '\0'; i++) {
+            if (instructions[i] == 'G') {
+                switch (orient) {
+                    case 0:
+                        ++pivot[0];
+                        break;
+                    case 1:
+                        ++pivot[1];
+                        break;
+                    case 2:
+                        --pivot[0];
+                        break;
+                    case 3:
+                        --pivot[1];
+                        break;
+                }
+            } else {
+                switch (instructions[i]) {
+                    case 'L':
+                        orient = (orient - 1 + 4) % 4;
+                        break;
+                    case 'R':
+                        orient = (orient + 1) % 4;
+                        break;
+                }
+            }
+        }
+        return pivot[0] == 0 && pivot[1] == 0 ? true : false;
+    }
 }
